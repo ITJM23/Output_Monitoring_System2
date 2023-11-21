@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Nov 20, 2023 at 05:52 AM
+-- Generation Time: Nov 21, 2023 at 08:49 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `line_output` (
   `Time_added` time NOT NULL,
   `Status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`Line_Output_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2852 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2854 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `line_output`
@@ -2303,7 +2303,40 @@ INSERT INTO `line_output` (`Line_Id`, `Line_Output_Id`, `Model_code`, `Sub_leade
 (3, 2848, '', '', '', '', 'Night Shift', '2023-11-17', '09:19:20', 1),
 (3, 2849, 'model 1', 'employee3', '', '', 'Day Shift', '2023-11-17', '09:19:25', 1),
 (3, 2850, '', '', '', '', 'Night Shift', '2023-11-20', '09:30:33', 1),
-(3, 2851, '', '', '', '', 'Day Shift', '2023-11-20', '09:30:37', 1);
+(3, 2851, '', '', '', '', 'Day Shift', '2023-11-20', '09:30:37', 1),
+(3, 2852, '', '', '', '', 'Night Shift', '2023-11-21', '08:50:35', 1),
+(3, 2853, '', '', '', '', 'Day Shift', '2023-11-21', '08:50:40', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `models`
+--
+
+DROP TABLE IF EXISTS `models`;
+CREATE TABLE IF NOT EXISTS `models` (
+  `model_id` int NOT NULL AUTO_INCREMENT,
+  `item_code` varchar(100) NOT NULL,
+  `alt_item_code` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  `Description` varchar(100) NOT NULL,
+  `model_bar_code` varchar(100) NOT NULL,
+  PRIMARY KEY (`model_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `models`
+--
+
+INSERT INTO `models` (`model_id`, `item_code`, `alt_item_code`, `model`, `Description`, `model_bar_code`) VALUES
+(1, '280881', '282409', 'IPRO-100-SH2-RC', '400-00-001R12142010 SPG', '443-01'),
+(2, '210167', '281743\r\n', 'IPRO-100-SH2-RC', '400-00-011P12323000 EUR', '080-01'),
+(3, '246816', '', 'IPRO-100-SH2-RC', '000-00-011P12323000 EUR', ''),
+(4, '246815', '282046', 'IPRO-100-SH2-RC', '400-00-011P12277010 USA', '225-01'),
+(5, '282063', '207618', 'IPRO-100', 'TRANSPORT UNIT', '620-01'),
+(6, '211379', '282388', 'IPRO-100-SS', '500-00-000P0-EUR-003', '064-01'),
+(7, '207619', '282629', 'IPRO-100-SS', '500-00-000P5 EUR-003', '036-01'),
+(8, '251868', '281479', 'IPRO-100-SS', '500-00-000R5 TWN-03-001', '242-01');
 
 -- --------------------------------------------------------
 

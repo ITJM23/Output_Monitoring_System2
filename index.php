@@ -545,8 +545,8 @@
                     dataType: "JSON",
                     success: function (response) {
 
-                        alert ("changed");
-
+                        toastr.success('Line Status', 'Successfully Updated', { "progressBar": true });
+                        $('#LineStatusMod').modal('hide')
                     }
                 })
 

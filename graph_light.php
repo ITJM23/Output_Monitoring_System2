@@ -138,6 +138,8 @@
                                         <td class="text-uppercase font-weight-bold text-primary" id="item_code">---</td>
                                         <td id="edit_i_1" style="display:none;"><input type="text" class="form-control" name="e_itemcode" id="e_itemcode" placeholder="Input item code here"></td>
                                         
+                                        
+                                        
                                         <td class="font-weight-bold text-success text-uppercase">Start Serial: </td>
                                         <td class="text-uppercase font-weight-bold text-dark" id="start_serial">---</td>
                                         <td id="edit_i_2" style="display:none;"><input type="text" class="form-control" name="e_start_serial" id="e_start_serial" placeholder="Input start serial here"></td>

@@ -21,6 +21,41 @@
     
     if(isset($_POST['action'])){
 
+
+        if ($_POST['action'] === 'getDropdownValues') {
+            // Fetch values from the database
+            $sql = "SELECT DISTINCT model FROM models"; // Replace 'models' with your table name
+        
+            $result = $con->query($sql);
+        
+            $values = array();
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $values[] = $row['model'];
+                }
+            }
+        
+            // Send values as JSON response
+            echo json_encode($values);
+        }
+
+        if ($_POST['action'] === 'getDropdownValues2') {
+            // Fetch values from the database
+            $sql = "SELECT item_code FROM models"; // Replace 'models' with your table name
+        
+            $result = $con->query($sql);
+        
+            $values = array();
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $values[] = $row['item_code'];
+                }
+            }
+        
+            // Send values as JSON response
+            echo json_encode($values);
+        }
+
         
 
         if($_POST['action'] == 'line_cards'){

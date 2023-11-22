@@ -141,12 +141,10 @@
                                            
 
 
-                                            <select class="form-control js-example-basic-multiple" name="e_itemcode" id="e_itemcode">
-                                            <option value="model 1">model 1</option>
-                                            <option value="model 2">model 2</option>
-                                            <option value="model 3">model 3</option>
-                                            <!-- Add more options as needed -->
-                                        </select>
+                                        <select class="form-control js-example-basic-multiple" name="e_itemcode" id="e_itemcode"></select>
+                                        <select class="form-control js-example-basic-multiple" name="e_itemcode2" id="e_itemcode2"></select>
+                                        
+
 
 
                                            
@@ -394,6 +392,9 @@
             $(document).ready(function () {
 
                 lineOutputInfo()
+
+                dropdownVALUES()
+                dropdownVALUES2()
                 
                 $('#total_count').focus()
 
@@ -458,6 +459,61 @@
                     })
                 })  
             })
+
+            function dropdownVALUES() {
+                $.ajax({
+                    url: "exec/fetch.php",
+                    method: 'POST',
+                    data: { action: 'getDropdownValues' },
+                    success: function(response) {
+                        try {
+                            const dataArray = JSON.parse(response);
+
+                            // Check if dataArray is an array using Array.isArray
+                            if (Array.isArray(dataArray)) {
+                                dataArray.forEach(function(value) {
+                                    $('#e_itemcode').append(`<option value="${value}">${value}</option>`);
+                                });
+                            } else {
+                                console.error("Response is not an array"); // Handle this case appropriately
+                            }
+                        } catch (error) {
+                            console.error("Error parsing JSON:", error);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error); // Handle error appropriately
+                    }
+                });
+            }
+
+            function dropdownVALUES2() {
+                $.ajax({
+                    url: "exec/fetch.php",
+                    method: 'POST',
+                    data: { action: 'getDropdownValues2' },
+                    success: function(response) {
+                        try {
+                            const dataArray = JSON.parse(response);
+
+                            // Check if dataArray is an array using Array.isArray
+                            if (Array.isArray(dataArray)) {
+                                dataArray.forEach(function(value) {
+                                    $('#e_itemcode2').append(`<option value="${value}">${value}</option>`);
+                                });
+                            } else {
+                                console.error("Response is not an array"); // Handle this case appropriately
+                            }
+                        } catch (error) {
+                            console.error("Error parsing JSON:", error);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error); // Handle error appropriately
+                    }
+                });
+            }
+
 
 
             // ==================== Not Allowing "-" or other characters but numbers =================

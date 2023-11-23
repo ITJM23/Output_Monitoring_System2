@@ -39,9 +39,12 @@
             echo json_encode($values);
         }
 
-        if ($_POST['action'] === 'getDropdownValues2') {
+        if ($_POST['action'] == 'getDropdownValues2') {
+
+            $model_var = $_POST['model'];
+
             // Fetch values from the database
-            $sql = "SELECT item_code FROM models"; // Replace 'models' with your table name
+            $sql = "SELECT item_code FROM models WHERE model = '$model_var'"; // Replace 'models' with your table name
         
             $result = $con->query($sql);
         
@@ -54,6 +57,7 @@
         
             // Send values as JSON response
             echo json_encode($values);
+            
         }
 
         

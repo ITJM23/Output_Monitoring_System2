@@ -394,7 +394,7 @@
                 lineOutputInfo()
 
                 dropdownVALUES()
-                dropdownVALUES2()
+                
                 
                 $('#total_count').focus()
 
@@ -487,17 +487,33 @@
                 });
             }
 
+            $('select[name="e_itemcode"]').change(function() {
+                dropdownVALUES2();
+            });
+
             function dropdownVALUES2() {
+
+                var selectElement = document.getElementById('e_itemcode');
+                
+                var model_val = selectElement.value;
+                console.log(model_val);
+
+                
                 $.ajax({
                     url: "exec/fetch.php",
                     method: 'POST',
-                    data: { action: 'getDropdownValues2' },
+                    data: { action: 'getDropdownValues2',
+                            model: model_val
+                        },
                     success: function(response) {
                         try {
                             const dataArray = JSON.parse(response);
 
                             // Check if dataArray is an array using Array.isArray
                             if (Array.isArray(dataArray)) {
+                                $('#e_itemcode2').empty(); // Clear the existing options
+
+                                
                                 dataArray.forEach(function(value) {
                                     $('#e_itemcode2').append(`<option value="${value}">${value}</option>`);
                                 });
